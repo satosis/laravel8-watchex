@@ -246,10 +246,10 @@ INSERT INTO `orders` (`id`, `od_transaction_id`, `od_product_id`, `od_sale`, `od
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Table structure for table `products`
 --
 
-CREATE TABLE `product` (
+CREATE TABLE `products` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `pro_name` varchar(191) DEFAULT NULL,
   `pro_amount` int(11) NOT NULL DEFAULT 100,
@@ -275,10 +275,10 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `product`
+-- Dumping data for table `products`
 --
 
-INSERT INTO `product` (`id`, `pro_name`, `pro_amount`, `pro_view`, `pro_slug`, `pro_price`, `pro_sale`, `pro_category`, `pro_avatar`, `pro_favourite`, `pro_hot`, `pro_active`, `pro_admin_id`, `pro_pay`, `pro_description`, `pro_content`, `pro_review_total`, `keywordseo`, `pro_review_star`, `_wysihtml5_mode`, `created_at`, `updated_at`) VALUES
+INSERT INTO `products` (`id`, `pro_name`, `pro_amount`, `pro_view`, `pro_slug`, `pro_price`, `pro_sale`, `pro_category`, `pro_avatar`, `pro_favourite`, `pro_hot`, `pro_active`, `pro_admin_id`, `pro_pay`, `pro_description`, `pro_content`, `pro_review_total`, `keywordseo`, `pro_review_star`, `_wysihtml5_mode`, `created_at`, `updated_at`) VALUES
 (6, 'Đồng hồ Philippe Auguste PA5001A', 100, 13, 'dong-ho-philippe-auguste-pa5001a', 1500000, 0, '1', '2020-07-06__784610833-dong-ho-nhap-khau.jpg', 0, 1, 1, 1, 0, 'THÔNG SỐ KỸ THUẬT<br> Đường kính mặt:40 mm<br> Chống nước:5 ATM<br> Chất liệu mặt:Sapphire<br> Năng lượng sử dụng:Automatic <br> Size dây<br> Chất liệu dây:Dây da chính hãng<br> Chất liệu vỏ:Stainless Steel<br> Kiểu dáng:Nam<br> Xuất xứ:Áo<br> Chế độ bảo hành:Bảo hành quốc tế 02 năm<br>', '<p> </p><div>Content</div><p></p>', 0, '', 5, '1', '2024-03-21 01:25:40', '2024-03-23 01:25:40'),
 (7, 'Đồng hồ Philippe Auguste PA5001B', 96, 63, 'dong-ho-philippe-auguste-pa5001b', 150000000, 0, '1', '2020-07-06__202451360-dong-ho-nhap-khau2.jpg', 1, 1, 1, 1, 18, 'Đang cập nhật', 'Content', 2, '', 11, '1', '2024-03-21 01:25:40', '2024-03-23 01:25:40'),
 (8, 'Đồng hồ Philippe Auguste PA5001C', 98, 13, 'dong-ho-philippe-auguste-pa5001c', 120000000, 0, '1', '2020-07-06__1494321812-dong-ho-nhap-khau3.jpg', 0, 0, 1, 1, 2, 'Đang cập nhật', 'Content', 0, '', 5, '1', '2024-03-21 01:25:40', '2024-03-23 01:25:40'),
@@ -474,7 +474,7 @@ INSERT INTO `product` (`id`, `pro_name`, `pro_amount`, `pro_view`, `pro_slug`, `
 (198, 'KÍNH MÁT BURBERRY BUR-3092QF-1003/87', 100, 0, 'kinh-mat-burberry-bur-3092qf-10038760it', 5750000, 0, '13', '2020-07-06__1295242677-kinh-mat5.jpg', 0, 0, 1, 1, 0, 'Đang cập nhật', 'Content', 0, '', 5, '1', '2024-03-21 01:25:40', '2024-03-23 01:25:40'),
 (199, 'KÍNH BURBERRY BUR-3084-1229/87', 100, 3, 'kinh-burberry-bur-3084-12298760it', 4550000, 0, '13', '2020-07-06__416352419-kinh-mat-1.jpg', 0, 0, 1, 1, 0, 'Đang cập nhật', 'Content', 0, '', 5, '1', '2024-03-21 01:25:40', '2024-03-23 01:25:40'),
 (200, 'Kính mát Burberry BUR-4251Q-3002/13', 100, 0, 'kinh-mat-burberry-bur-4251q-30021353it', 5250000, 0, '13', '2020-07-06__1567180200-227245783-knh-b14.jpg', 0, 0, 1, 1, 0, 'Đang cập nhật', 'Content', 0, '', 5, '1', '2024-03-21 01:25:40', '2024-03-23 01:25:40');
-INSERT INTO `product` (`id`, `pro_name`, `pro_amount`, `pro_view`, `pro_slug`, `pro_price`, `pro_sale`, `pro_category`, `pro_avatar`, `pro_favourite`, `pro_hot`, `pro_active`, `pro_admin_id`, `pro_pay`, `pro_description`, `pro_content`, `pro_review_total`, `keywordseo`, `pro_review_star`, `_wysihtml5_mode`, `created_at`, `updated_at`) VALUES
+INSERT INTO `products` (`id`, `pro_name`, `pro_amount`, `pro_view`, `pro_slug`, `pro_price`, `pro_sale`, `pro_category`, `pro_avatar`, `pro_favourite`, `pro_hot`, `pro_active`, `pro_admin_id`, `pro_pay`, `pro_description`, `pro_content`, `pro_review_total`, `keywordseo`, `pro_review_star`, `_wysihtml5_mode`, `created_at`, `updated_at`) VALUES
 (201, 'Kính mát Burberry BUR-4250QF-3316/13', 100, 0, 'kinh-mat-burberry-bur-4250qf-33161354it', 4950000, 0, '13', '2020-07-06__185240634-2124339861-knh-b26.jpg', 0, 0, 1, 1, 0, 'Đang cập nhật', 'Content', 0, '', 5, '1', '2024-03-21 01:25:40', '2024-03-23 01:25:40'),
 (202, 'Kính Burberry BUR-3092QF-1243/7J', 100, 0, 'kinh-burberry-bur-3092qf-12437j60it', 5750000, 0, '13', '2020-07-06__dd126-img-7787.jpg', 0, 0, 1, 1, 0, 'Đang cập nhật', 'Content', 0, '', 5, '1', '2024-03-21 01:25:40', '2024-03-23 01:25:40'),
 (203, 'KÍNH MÁT BURBERRY BUR-4279-3767/2L', 100, 0, 'kinh-mat-burberry-bur-4279-37672l40it', 5550000, 0, '13', '2020-07-06__256057444-knh-mt-thi-trang-3.jpg', 0, 0, 1, 1, 0, 'Đang cập nhật', 'Content', 0, '', 5, '1', '2024-03-21 01:25:40', '2024-03-23 01:25:40'),
@@ -806,9 +806,9 @@ ALTER TABLE `orders`
   ADD KEY `orders_od_product_id_foreign` (`od_product_id`);
 
 --
--- Indexes for table `product`
+-- Indexes for table `products`
 --
-ALTER TABLE `product`
+ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -896,9 +896,9 @@ ALTER TABLE `orders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `product`
+-- AUTO_INCREMENT for table `products`
 --
-ALTER TABLE `product`
+ALTER TABLE `products`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=283;
 
 --
@@ -945,27 +945,27 @@ ALTER TABLE `user_favourite`
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_od_product_id_foreign` FOREIGN KEY (`od_product_id`) REFERENCES `product` (`id`),
+  ADD CONSTRAINT `orders_od_product_id_foreign` FOREIGN KEY (`od_product_id`) REFERENCES `products` (`id`),
   ADD CONSTRAINT `orders_od_transaction_id_foreign` FOREIGN KEY (`od_transaction_id`) REFERENCES `transactions` (`id`);
 
 --
 -- Constraints for table `product_images`
 --
 ALTER TABLE `product_images`
-  ADD CONSTRAINT `product_images_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
+  ADD CONSTRAINT `product_images_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
 
 --
 -- Constraints for table `product_keywords`
 --
 ALTER TABLE `product_keywords`
   ADD CONSTRAINT `product_keywords_pk_keyword_id_foreign` FOREIGN KEY (`pk_keyword_id`) REFERENCES `keyword` (`id`),
-  ADD CONSTRAINT `product_keywords_pk_product_id_foreign` FOREIGN KEY (`pk_product_id`) REFERENCES `product` (`id`);
+  ADD CONSTRAINT `product_keywords_pk_product_id_foreign` FOREIGN KEY (`pk_product_id`) REFERENCES `products` (`id`);
 
 --
 -- Constraints for table `ratings`
 --
 ALTER TABLE `ratings`
-  ADD CONSTRAINT `ratings_r_product_id_foreign` FOREIGN KEY (`r_product_id`) REFERENCES `product` (`id`),
+  ADD CONSTRAINT `ratings_r_product_id_foreign` FOREIGN KEY (`r_product_id`) REFERENCES `products` (`id`),
   ADD CONSTRAINT `ratings_r_user_id_foreign` FOREIGN KEY (`r_user_id`) REFERENCES `users` (`id`);
 
 --
@@ -978,7 +978,7 @@ ALTER TABLE `transactions`
 -- Constraints for table `user_favourite`
 --
 ALTER TABLE `user_favourite`
-  ADD CONSTRAINT `user_favourite_uf_product_id_foreign` FOREIGN KEY (`uf_product_id`) REFERENCES `product` (`id`),
+  ADD CONSTRAINT `user_favourite_uf_product_id_foreign` FOREIGN KEY (`uf_product_id`) REFERENCES `products` (`id`),
   ADD CONSTRAINT `user_favourite_uf_user_id_foreign` FOREIGN KEY (`uf_user_id`) REFERENCES `users` (`id`);
 COMMIT;
 

@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 
-class ProcessViewService 
+class ProcessViewService
 {
     public static function view($table,$column,$key,$id)
     {
@@ -21,5 +21,5 @@ class ProcessViewService
         \DB::table($table)->where('id',$id)->increment($column);
     }
 
-    
+
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+
 class UserFavouriteController extends Controller
 {
     public function index(){
@@ -24,32 +25,30 @@ class UserFavouriteController extends Controller
         return view('user.favourite',$viewData);
     }
     public function addFavourite(Request $request ,$id){
-        if ($request->ajax()) {  
+        if ($request->ajax()) {
             //1.  Kiểm tra tồn tại sản phẩm
             $product = Product::find($id);
             if (!$product) return response(['messages' => 'Không tồn tại sản phẩm']);
 
             $user_favourite =\DB::table('user_favourite')->where('uf_product_id',$id)
                                                         ->where('uf_user_id',\Auth::id());
-            $count=$product->pro_favourite;                    
+            $count=$product->pro_favourite;
             if($user_favourite->count()==0){
-                $count=$count+1; 
+                $count=$count+1;
                 \DB::table('user_favourite')
                 ->insert([
                     'uf_product_id' => $id,
                     'uf_user_id'    => \Auth::id()
                 ]);
-                
-                \DB::table('product')
-                ->where('id',$id)
+
+                Product::where('id',$id)
                 ->increment('pro_favourite');
                 $status="1";
             } else if($user_favourite->count()!= 0) {
-                $count=$count-1; 
+                $count=$count-1;
                 $user_favourite->delete();
 
-                \DB::table('product')
-                ->where('id',$id)
+                Product::where('id',$id)
                 ->decrement('pro_favourite');
                 $status="2";
             }
@@ -57,5 +56,5 @@ class UserFavouriteController extends Controller
             return response(['status'=>$status,'count'=>$count]);
         }
     }
-    
+
 }

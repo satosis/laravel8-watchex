@@ -242,12 +242,11 @@ class ShoppingCartController extends Controller
                     'od_price' => $item->price
                 ]);
                 //Tăng số lượt mua của sản phẩm
-                \DB::table('product')
-                    ->where('id', $item->id)
+                Product::where('id', $item->id)
                     ->increment("pro_pay");
-                \DB::table('product')
-                    ->where('id', $item->id)
-                    ->decrement("pro_amount");
+                $product = Product::find($item->id);
+                $product->pro_amount = $product->pro_amount - $item->qty;
+                $product->update();
             }
         }
 
