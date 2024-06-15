@@ -257,7 +257,7 @@ CREATE TABLE `products` (
   `pro_slug` varchar(191) DEFAULT NULL,
   `pro_price` int(11) NOT NULL DEFAULT 0,
   `pro_sale` int(11) NOT NULL DEFAULT 0,
-  `pro_category` varchar(191) DEFAULT NULL,
+  `pro_category` bigint(20) UNSIGNED NOT NULL,
   `pro_avatar` varchar(191) DEFAULT NULL,
   `pro_favourite` int(11) NOT NULL DEFAULT 0,
   `pro_hot` int(11) NOT NULL DEFAULT 0,
@@ -808,9 +808,10 @@ ALTER TABLE `orders`
 --
 -- Indexes for table `products`
 --
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `products_pro_category_foreign` (`pro_category`);
 --
 -- Indexes for table `product_images`
 --
@@ -945,41 +946,44 @@ ALTER TABLE `user_favourite`
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_od_product_id_foreign` FOREIGN KEY (`od_product_id`) REFERENCES `products` (`id`),
-  ADD CONSTRAINT `orders_od_transaction_id_foreign` FOREIGN KEY (`od_transaction_id`) REFERENCES `transactions` (`id`);
+  ADD CONSTRAINT `orders_od_product_id_foreign` FOREIGN KEY (`od_product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `orders_od_transaction_id_foreign` FOREIGN KEY (`od_transaction_id`) REFERENCES `transactions` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `product_images`
 --
 ALTER TABLE `product_images`
-  ADD CONSTRAINT `product_images_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
+  ADD CONSTRAINT `product_images_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `product_keywords`
 --
 ALTER TABLE `product_keywords`
-  ADD CONSTRAINT `product_keywords_pk_keyword_id_foreign` FOREIGN KEY (`pk_keyword_id`) REFERENCES `keyword` (`id`),
-  ADD CONSTRAINT `product_keywords_pk_product_id_foreign` FOREIGN KEY (`pk_product_id`) REFERENCES `products` (`id`);
+  ADD CONSTRAINT `product_keywords_pk_keyword_id_foreign` FOREIGN KEY (`pk_keyword_id`) REFERENCES `keyword` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `product_keywords_pk_product_id_foreign` FOREIGN KEY (`pk_product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `ratings`
 --
 ALTER TABLE `ratings`
-  ADD CONSTRAINT `ratings_r_product_id_foreign` FOREIGN KEY (`r_product_id`) REFERENCES `products` (`id`),
-  ADD CONSTRAINT `ratings_r_user_id_foreign` FOREIGN KEY (`r_user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `ratings_r_product_id_foreign` FOREIGN KEY (`r_product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `ratings_r_user_id_foreign` FOREIGN KEY (`r_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `transactions`
 --
 ALTER TABLE `transactions`
-  ADD CONSTRAINT `transactions_tst_user_id_foreign` FOREIGN KEY (`tst_user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `transactions_tst_user_id_foreign` FOREIGN KEY (`tst_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+ALTER TABLE `products`
+  ADD CONSTRAINT `products_pro_category_foreign` FOREIGN KEY (`pro_category`) REFERENCES `category` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `user_favourite`
 --
 ALTER TABLE `user_favourite`
-  ADD CONSTRAINT `user_favourite_uf_product_id_foreign` FOREIGN KEY (`uf_product_id`) REFERENCES `products` (`id`),
-  ADD CONSTRAINT `user_favourite_uf_user_id_foreign` FOREIGN KEY (`uf_user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `user_favourite_uf_product_id_foreign` FOREIGN KEY (`uf_product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user_favourite_uf_user_id_foreign` FOREIGN KEY (`uf_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -327,7 +327,7 @@ button{outline:none}
 #pageway ul li { display: flex; align-items: center; line-height: 20px}
 #pageway ul li:last-child:after {display: none}
 
-#container { background: #e5e5e5; padding-bottom: 30px}
+#container { padding-bottom: 30px}
 #menuCate {padding: 10px 0}
 #menuCate .wrp { background: #fff}
 #menuCate .group { display: flex; flex-wrap: wrap}
@@ -370,7 +370,10 @@ button{outline:none}
 #filter .order .price { align-items: center; align-items: center; display: flex; }
 #filter .order .price li,
 #filter .order .price > span { white-space: nowrap }
-#filter .order span { color: #288ad6; cursor: pointer; margin-right: 7px; }
+#filter .order span, #filter .order .active { color: #288ad6; cursor: pointer; margin-right: 7px; }
+.li_active {
+   color: #288ad6
+}
 #filter .order .right { display: flex }
 #filter .order .right .function { margin-right: 10px; position: relative }
 #filter .order .right .function:last-child {margin-right: 0}

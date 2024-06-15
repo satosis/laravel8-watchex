@@ -15,8 +15,8 @@ class CreateUserFavouriteTable extends Migration
     {
         Schema::create('user_favourite', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('uf_product_id')->constrained('products');
-            $table->foreignId('uf_user_id')->constrained('users');
+            $table->foreignId('uf_product_id')->constrained('products')->onDelete('cascade');
+            $table->foreignId('uf_user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

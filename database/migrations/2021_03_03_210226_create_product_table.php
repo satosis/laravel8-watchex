@@ -21,7 +21,7 @@ class CreateProductTable extends Migration
             $table->string('pro_slug')->nullable();
             $table->integer('pro_price')->default(0);
             $table->integer('pro_sale')->default(0);
-            $table->string('pro_category')->nullable();
+            $table->foreignId('pro_category')->constrained('category')->onDelete('cascade');
             $table->string('pro_avatar')->nullable();
             $table->integer('pro_favourite')->default(0);
             $table->integer('pro_hot')->default(0);

@@ -46,37 +46,28 @@
     <html>
     <div class="lzd-playground-main">
         <div class="lzd-playground-nav">
-            <div class="member-info">
-                <p>
-                    <span>Xin chào, </span>
-                    <span id="lzd_current_logon_user_name">{{ Auth::user()->name}}</span>
-                </p>
+            <div class="member-info sub" style="font-size:18px;margin-top:2px">
+                <span>Xin chào, </span>
+                <span id="lzd_current_logon_user_name">{{ Auth::user()->name}}</span>
             </div>
             <ul class="nav-container">
-                <li class="item" id="Manage-My-Account"><a class="active" href="{{ route('get.user.index') }}">
-                        <span>Quản lý tài khoản</span></a>
-                    <ul class="item-container">
-                        <li id="My-profile" class="sub"><a href="{{ route('get.user.profile') }}"
-                            >Thông tin cá nhân</a></li>
-                        <!-- <li id="Address-book" class="sub"><a href="{{ route('get.user.address') }}">Sổ địa chỉ</a></li>
-                <li id="Payment-methods" class="sub"><a href="//checkout.lazada.vn/payment/management"
-                                                                               >Tùy chọn thanh toán</a></li>
-                <li id="Vouchers" class="sub"><a href="#"
-                                                                        >Mã giảm giá</a></li> -->
-                    </ul>
+                <li class="item" id="Manage-My-Account">
                 </li>
-                <li class="item" id="My-Orders"><a href="{{ route('get.user.orders', ['status' => 0]) }}">
-                        <span>Đơn hàng của tôi</span></a>
-                    <ul class="item-container">
-                        <li id="Returns" class="sub"><a href="{{ route('get.user.orders', ['status' => 3]) }}">Đơn hàng
-                                đã nhận</a></li>
-                        <li id="Returns" class="sub"><a href="{{ route('get.user.orders', ['status' => 2]) }}">Đơn hàng
-                                đang chờ</a></li>
-                        <li id="Cancellations" class="sub"><a href="{{ route('get.user.orders', ['status' => -1]) }}">Đơn
-                                hàng hủy</a></li>
-                    </ul>
+                <li class="item" id="My-Orders">
+                    <li class="@if(\Request::route()->getName() == 'get.user.profile') li_active @endif" id="Returns" class="sub" style="margin-top: 25px">
+                        <a href="{{ route('get.user.profile') }}">
+                            <span>Thông tin cá nhân</span>
+                        </a>
+                    </li>
+                    <li class="@if(\Request::route()->getName() == 'get.user.orders' && Request('status') == 0) li_active @endif" id="Returns" class="sub">
+                        <a href="{{ route('get.user.orders', ['status' => 0]) }}">
+                            <span>Đơn hàng của tôi</span>
+                        </a>
+                        </li>
                 </li>
-
+                <li class="@if(\Request::route()->getName() == 'get.user.favourite') li_active @endif" class="item" id="My-Orders"><a href="{{ route('get.user.favourite') }}">
+                        <span>Sản phẩm yêu thích</span></a>
+                </li>
             </ul>
         </div>
         <html>

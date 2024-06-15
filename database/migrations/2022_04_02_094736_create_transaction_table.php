@@ -15,7 +15,7 @@ class CreateTransactionTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tst_user_id')->constrained('users');
+            $table->foreignId('tst_user_id')->constrained('users')->onDelete('cascade');
             $table->string('tst_total_money')->default(0);
             $table->string('tst_name')->nullable();
             $table->string('tst_email')->nullable();
