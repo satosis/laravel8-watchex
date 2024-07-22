@@ -39,6 +39,14 @@
                                        autocomplete="off">
                             </div>
                         </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="pass">Số lượng</label>
+                                <input type="number" class="form-control" name="pro_amount" id="pass"
+                                       value="{{ $product->pro_amount ?? old('pro_amount',0) }}" placeholder="10"
+                                       autocomplete="off">
+                            </div>
+                        </div>
                         <br>
                         <br>
                         <br>

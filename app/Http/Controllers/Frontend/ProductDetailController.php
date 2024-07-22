@@ -22,7 +22,7 @@ class ProductDetailController extends Controller
         ->where('uf_user_id',\Auth::id())->count();
         if($id){
 
-        ProcessViewService::view('product','pro_view','product',$id);
+        ProcessViewService::view('products','pro_view','products',$id);
         $product =Product::with('category:id,c_name,c_slug','keyword')->findOrFail($id);
 
             //bài viết đánh giá chung
@@ -77,9 +77,7 @@ class ProductDetailController extends Controller
             'image' => $image ?? []
 
         ];
-        \DB::table('product')
-        ->where('id',$id)
-        ->increment('pro_view');
+        Product::where('id',$id)->increment('pro_view');
         return view('layout.pages.product_detail.index',$viewData);
     }
     return redirect()->to('/');

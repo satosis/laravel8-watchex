@@ -15,8 +15,8 @@ class CreateRatingTable extends Migration
     {
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('r_user_id')->constrained('users');
-            $table->foreignId('r_product_id')->constrained('product');
+            $table->foreignId('r_user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('r_product_id')->constrained('products')->onDelete('cascade');
             $table->integer('r_number')->default(0);
             $table->integer('r_status')->default(0);
             $table->string('r_content')->nullable();

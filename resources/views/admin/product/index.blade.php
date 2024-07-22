@@ -21,7 +21,7 @@
                 <td>#</td>
                 <td>Tên sản phẩm</td>
                 <td>Giá</td>
-                <td>Giảm giá</td>
+                <td>Số lượng</td>
                 <td>Giá nhập</td>
                 <td>Thể loại</td>
                 <td>Người đăng</td>
@@ -37,7 +37,7 @@
                     <td>{{ ((Request::get('page') ?? 1) - 1) * 10 + $key + 1 }}</td>
                     <td>{{ $list->pro_name}}</td>
                     <td>{{ $list->pro_price}}</td>
-                    <td>{{ $list->pro_sale}}</td>
+                    <td>{{ $list->pro_amount}}</td>
                     <td>{{ $list->pro_price_entry}}</td>
                     <td><span class="label label-info">{{ $list->category->c_cate ??"[N\A]" }}</span></td>
                     <td>{{ $list->pro_admin_id}}</td>

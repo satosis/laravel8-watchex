@@ -3,9 +3,6 @@
     <title>{{ $title_page ?? $title_page}}</title>
     <br>
     <link rel="stylesheet" type="text/css" href="/core/Smarty/templates/paging/style.css">
-    <style>.active {
-            color: #288ad6
-        }</style>
 
     <div id="product">
         <div class="wrp">
@@ -93,11 +90,10 @@
                     @foreach($products as $list)
                         @include('layout.component.list_product',['list'=>$list])
                     @endforeach
-                    <div class="box-footer">
-                        {!! $products->appends(request()->query())->links() !!}
-                    </div>
                 </div>
-
+                <div class="box-footer">
+                    {!! $products->appends(request()->query())->links() !!}
+                </div>
             </div>
         </div>
 

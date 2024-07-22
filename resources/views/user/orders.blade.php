@@ -67,12 +67,11 @@
                     @endif
                 @endforeach
             </div>
+            <div class="box-footer">
+                {!! $transaction->appends(request()->query())->links() !!}
+            </div>
         </div>
     </div>
     </div>
-    </div>
-    <div class="box-footer">
-        {!! $transaction->appends(request()->query())->links() !!}
-
     </div>
 @stop
