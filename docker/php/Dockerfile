@@ -9,11 +9,13 @@ RUN apt update && apt install -y \
     zip \
     unzip\
     libmagickwand-dev\
-    imagemagick
+    imagemagick \
+    libzip-dev
 
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash
 RUN apt-get -y install nodejs
-
+RUN docker-php-ext-install exif
+RUN docker-php-ext-install gd
 RUN pecl install imagick
 RUN docker-php-ext-enable imagick
 RUN docker-php-ext-install pdo_mysql
@@ -27,4 +29,4 @@ RUN mv composer.phar /usr/local/bin/composer
 #RUN groupmod -g 1000 www-data
 #USER www-data:www-data
 
-CMD ["/var/www/html/docker/php/script.sh"]
+# CMD ["/var/www/html/docker/php/script.sh"]
