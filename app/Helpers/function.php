@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
+use \Illuminate\Support\Str;
 use function foo\func;
 
 if (!function_exists('upload_image')) {
@@ -31,7 +32,7 @@ if (!function_exists('upload_image')) {
 
         // Tên file mới
         $nameFile = trim(str_replace('.' . $ext, '', strtolower($info->getFilename())));
-        $filename = date('Y-m-d__') . \Illuminate\Support\Str::slug($nameFile) . '.' . $ext;;
+        $filename = date('Y-m-d__') . Str::slug($nameFile) . Str::random(5) . '.' . $ext;
 
         // thu muc goc de upload
         $path = public_path() . '/uploads/' . date('Y/m/d/');
