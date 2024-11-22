@@ -15,6 +15,7 @@ RUN apt update && apt install -y \
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash
 RUN apt-get -y install nodejs
 RUN docker-php-ext-install exif
+RUN docker-php-ext-install zip
 RUN docker-php-ext-install gd
 RUN pecl install imagick
 RUN docker-php-ext-enable imagick
