@@ -16,3 +16,4 @@
             <div class="content">{{ $rating->r_content}}</div>
         </div>
     </div>
+</div>
