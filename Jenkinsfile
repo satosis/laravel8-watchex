@@ -35,6 +35,11 @@ pipeline {
         }
     }
 
+    environment {
+        // Define your SSH credential ID here
+        SSH_CREDENTIALS = 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB/01qwbcMVxHpHCiU/p2mwPLrGUdhSZgKrB9Rz47yzl hung0@admin'
+    }
+
     post {
         failure {
           echo 'Build thất bại !'
