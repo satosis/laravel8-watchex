@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'docker-agent'
+            label 'windows'
             }
       }
     triggers {
@@ -11,13 +11,19 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building.."
-                bat '/var/www/laravel8-watchex/bat/build.bat'
+                sh '''
+                cd bat
+                bat build.bat
+                '''
             }
         }
         stage('Alert') {
             steps {
                 echo "Alerting.."
-                bat '/var/www/laravel8-watchex/bat/alert.bat'
+                sh '''
+                cd bat
+                bat alert.bat
+                '''
             }
         }
         stage('Deliver') {
