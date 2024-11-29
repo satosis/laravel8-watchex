@@ -11,15 +11,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building.."
-                sh '''
-                '''
+                bat 'ssh -i "tesst.pem" ubuntu@ec2-174-129-47-54.compute-1.amazonaws.com "cd /var/www/laravel8-watchex && git reset --hard && git pull origin master"'
             }
         }
-        stage('Test') {
+        stage('Alert') {
             steps {
-                echo "Testing.."
-                sh '''
-                '''
+                echo "Alerting.."
+                bat 'ssh -i "tesst.pem" ubuntu@ec2-174-129-47-54.compute-1.amazonaws.com "cd /var/www/laravel8-watchex/chatbot && ./build_success.sh"'
             }
         }
         stage('Deliver') {
@@ -29,6 +27,13 @@ pipeline {
                 echo "doing delivery stuff.."
                 '''
             }
+        }
+    }
+    
+    post {
+        failure {
+          echo 'Build thất bại !'
+            bat 'ssh -i "tesst.pem" ubuntu@ec2-174-129-47-54.compute-1.amazonaws.com "cd /var/www/laravel8-watchex/chatbot && ./build_fail.sh"'
         }
     }
 }
