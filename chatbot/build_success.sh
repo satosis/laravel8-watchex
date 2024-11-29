@@ -1,7 +1,7 @@
 #!/bin/bash
 cd /var/www/laravel8-watchex
 TELEGRAM_BOT_TOKEN="6434708723:AAEK3eWhfe7gOc9F2g0w2sokk6TumvYEeAk"
-CHAT_ID="6434708723"
+CHAT_ID="-4640554721"
 
 # Run git command
 GIT_OUTPUT=$(git diff --name-only HEAD HEAD~1)
