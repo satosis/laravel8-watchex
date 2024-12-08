@@ -5,7 +5,7 @@
     <title>{{ $title_page ?? $title_page}}</title>
     <br>
 
-    <div class="product">
+    <div class="product knowdged">
         <div class="wrp">
             <a href="javascript://" title="" class="titleHead">Sản phẩm bán chạy nhất</a>
             <div class="tabs">
