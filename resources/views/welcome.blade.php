@@ -5,9 +5,9 @@
     <title>{{ $title_page ?? $title_page}}</title>
     <br>
 
-    <div class="product prise">
+    <div class="product knowdge">
         <div class="wrp">
-            <a href="javascript://" title="" class="titleHead">Sản phẩm bán chạy</a>
+            <a href="javascript://" title="" class="titleHead">Sản phẩm bán chạy nhất</a>
             <div class="tabs">
                 <ul class="tab-links">
                     <li class="active"><a href="#tab1" title="">ĐỒNG HỒ CHÍNH HÃNG</a></li>
